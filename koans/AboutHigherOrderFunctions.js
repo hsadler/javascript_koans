@@ -77,7 +77,7 @@ describe("About Higher Order Functions", function () {
     expect(_.range(0, -4, -1)).toEqual([0, -1, -2, -3]);
   });
 
-  it("should use flatten to make nested arrays easy to work with", function() {
+  it("should use 'flatten' to make nested arrays easy to work with", function() {
     expect(_([ [1, 2], [3, 4] ]).flatten()).toEqual([1, 2, 3, 4]);
   });
 
@@ -88,7 +88,7 @@ describe("About Higher Order Functions", function () {
                      .reduce(function (sum, x) { return sum + x;})
                      .value();
 
-    expect(result).toEqual(FILL_ME_IN);
+    expect(result).toEqual(6);
   });
 
 });
