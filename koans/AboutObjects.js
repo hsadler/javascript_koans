@@ -33,7 +33,7 @@ describe("About Objects", function () {
   });
 
   it("should confirm that when a function is attached to an object, 'this' refers to the object", function () {
-    var currentDate = new Date()
+    var currentDate = new Date();
     var currentYear = (currentDate.getFullYear());
     var meglomaniac = {
       mastermind: "James Wood",
@@ -44,8 +44,8 @@ describe("About Objects", function () {
       }
     };
 
-    expect(currentYear).toBe(FILL_ME_IN);
-    expect(meglomaniac.calculateAge()).toBe(FILL_ME_IN);
+    expect(currentYear).toBe(2015);
+    expect(meglomaniac.calculateAge()).toBe(45);
   });
 
   describe("'in' keyword", function () {
