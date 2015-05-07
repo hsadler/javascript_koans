@@ -34,8 +34,8 @@ describe("About Higher Order Functions", function () {
       /* initial */ 0
     );
 
-    expect(reduction).toBe(FILL_ME_IN);
-    expect(numbers).toEqual(FILL_ME_IN);
+    expect(reduction).toBe(6);
+    expect(numbers).toEqual([1, 2, 3]);
   });
 
   it("should use 'forEach' for simple iteration", function () {
