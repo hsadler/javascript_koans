@@ -117,16 +117,35 @@ describe("About Applying What We Have Learnt", function() {
                           .reduce(countIngredients, ingredientCount)
                           .value();
 
-    console.log(ingredientCount);
-
     expect(ingredientCount['mushrooms']).toBe(2);
   });
 
   /*********************************************************************************/
   /* UNCOMMENT FOR EXTRA CREDIT */
-  /*
-  it("should find the largest prime factor of a composite number", function () {
 
+  it("should find the largest prime factor of a composite number", function () {
+    var compositeNum = 38;
+
+    var isPrime = function(n) {
+      var test = true;
+      var checkRange = _.range(2, n);
+      checkRange.forEach(function(x) {
+        if(n % x === 0) { test = false; }
+      });
+      return test;
+    };
+
+    var findGreaterPrime = function(memo, z) {
+      if(isPrime(z) && z > memo) memo = z;
+      return memo;
+    };
+
+    var largestPrimeFactor = _(_.range(2, (compositeNum / 2) + 1)).chain()
+                                  .filter(function(x) { return compositeNum % x === 0; })
+                                  .reduce(findGreaterPrime, 2)
+                                  .value();
+
+    expect(largestPrimeFactor).toBe(19);
   });
 
   it("should find the largest palindrome made from the product of two 3 digit numbers", function () {
@@ -145,5 +164,5 @@ describe("About Applying What We Have Learnt", function() {
   it("should find the 10001st prime", function () {
 
   });
-  */
+
 });
