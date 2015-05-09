@@ -130,7 +130,7 @@ describe("About Applying What We Have Learnt", function() {
       var test = true;
       var checkRange = _.range(2, n);
       checkRange.forEach(function(x) {
-        if(n % x === 0) { test = false; }
+        if(n % x === 0) test = false;
       });
       return test;
     };
@@ -149,6 +149,28 @@ describe("About Applying What We Have Learnt", function() {
   });
 
   it("should find the largest palindrome made from the product of two 3 digit numbers", function () {
+
+    var isPalindrome = function(num) {
+      num = num.toString().split('');
+      var reverseNum = num.slice().reverse();
+      return num.join('') === reverseNum.join('') ? true : false;
+    };
+
+    var hasTwoThreeDigitFactors = function(num) {
+      var highestPossFact = Math.floor(num / 100);
+      var lowestPossFact = Math.floor(num / 999);
+      var rangeNums = _.range(highestPossFact, lowestPossFact, -1).filter(function(x) {
+        return x > 99 && x < 1000;
+      });
+      return _(rangeNums).any(function(x) {
+        return (num % x === 0 && (num / x).toString().length === 3);
+      });
+    };
+
+    var palindromList = _(_.range(999 * 999, 100 * 100, -1)).filter(isPalindrome);
+    var largestPalendrome = _(palindromList).filter(hasTwoThreeDigitFactors)[0];
+
+    expect(largestPalendrome).toBe(906609);
 
   });
 
