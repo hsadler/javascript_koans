@@ -201,6 +201,23 @@ describe("About Applying What We Have Learnt", function() {
 
   it("should find the difference between the sum of the squares and the square of the sums", function () {
 
+    var getSumSquares = function(rangeArr) {
+      return _.reduce(rangeArr, function(memo, x) {
+        return memo + Math.pow(x, 2);
+      }, 0);
+    };
+
+    var getSquareSums = function(rangeArr) {
+      return Math.pow(_.reduce(rangeArr, function(memo, x) {return memo + x;}, 0), 2);
+    };
+
+    var diffSumSquaresSquareSums = (function(number) {
+      var numRange = _.range(1, number + 1);
+      return Math.abs(getSumSquares(numRange) - getSquareSums(numRange));
+    })(55);
+
+    expect(diffSumSquaresSquareSums).toBe(2314620);
+
   });
 
   it("should find the 10001st prime", function () {
