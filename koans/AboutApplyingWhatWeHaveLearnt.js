@@ -222,6 +222,30 @@ describe("About Applying What We Have Learnt", function() {
 
   it("should find the 10001st prime", function () {
 
+    var isPrime = function(n) {
+      var test = true;
+      var checkRange = _.range(2, n);
+      checkRange.forEach(function(x) {
+        if(n % x === 0) test = false;
+      });
+      return test;
+    };
+
+    var getBigPrime = function() {
+      var primeCollection = [];
+      var counter = 1;
+      while(primeCollection.length < 10001) {
+        counter++;
+        if(isPrime(counter)) {
+          primeCollection.push(counter);
+        }
+      }
+      return primeCollection.pop();
+    };
+
+    var myBigPrime = getBigPrime();
+
+    expect(myBigPrime).toBe(104743);
   });
 
 });
